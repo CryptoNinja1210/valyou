@@ -1,0 +1,1 @@
+export const SELECTED_USER_TYPE = "SELECTED_USER_TYPE";

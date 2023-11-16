@@ -1,0 +1,40 @@
+body {
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+#combo-box-demo {
+  padding: 4px 12px;
+}
+
+/* Hide scrollbar for webkit browsers (e.g. Chrome, Safari) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for other browsers */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+/* Hide scrollbar for specific div */
+div.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for specific div in other browsers */
+div.hide-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+/* Hide the footer for bottomsheet */
+._YZRPO,
+._xlcmb {
+  background: white !important;
+  box-shadow: none !important;
+}

@@ -1,0 +1,24 @@
+input{
+    margin:0;
+    border: 1px solid #FF0093;
+    width: 450px;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+[type='search']::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #FF0093;
+  margin:18px;
+  padding-left: 27px;
+  /* padding:12px; */
+  opacity: 1; /* Firefox */
+}
+
+.hide {
+  display: none;
+}
+
+.revealer:hover .hide {
+  display: block;
+}
+

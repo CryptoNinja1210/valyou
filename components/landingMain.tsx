@@ -71,7 +71,9 @@ const MainLandingComponent = () => {
       {openVideo && (
         <div onClick={closeVideo} className="fixed w-screen h-screen bg-opacity-0 flex items-center justify-center z-50 top-0 left-0 bottom-0 overflow-hidden">
           {/* <video className=" " src="/assets/video/valyou_.mp4" autoPlay></video> */}
-          <iframe className="w-3/5 h-3/5" src="https://mega.nz/embed/rAtVnbqS#9_JpHURUBHSFmr7T1KjhjP6VwNqAT2VSQvSf4ANVkRY!1a" allowFullScreen allow="autoplay;"></iframe>
+          <div className="w-3/5 h-3/5 p-1 bg-stone-600 flex items-center justify-center rounded-lg">
+            <iframe className="w-full h-full" src="https://mega.nz/embed/rAtVnbqS#9_JpHURUBHSFmr7T1KjhjP6VwNqAT2VSQvSf4ANVkRY!1a" allowFullScreen allow="autoplay;"></iframe>
+          </div>
         </div>
       )}
       <div className="my-24 mx-10">

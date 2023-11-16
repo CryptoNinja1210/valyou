@@ -25,7 +25,7 @@ const broadcastAuthInstance = axios.create({
 
 class apiCore {
     protected API_URL = baseURL;
-    protected axios = axios.create({
+    protected client = axios.create({
         baseURL: this.API_URL,
         headers: {
             "Content-Type" : "application/json"
@@ -40,8 +40,8 @@ class apiCore {
         }
     }
     setAuthorization = (token: string | null ) => {
-        if ( token ) this.axios.defaults.headers.common['Authorization'] = constant.TOKEN_PREFIX + token;
-        else delete this.axios.defaults.headers.common['Authorization'];
+        if ( token ) this.client.defaults.headers.common['Authorization'] = constant.TOKEN_PREFIX + token;
+        else delete this.client.defaults.headers.common['Authorization'];
     }
     isUserAuthenticated = (token: string|undefined) => {
         if ( !token ) return false;
@@ -54,9 +54,11 @@ class apiCore {
     post = async (url:string, data:any, authorization: string|null) => {
         this.setAuthorization(authorization);
         const request = new Promise<any>((resolve, reject) => {
-            this.axios.post(url, data).then(async res => {
+            this.client.post(url, data).then(async res => {
+                console.log('post_resolve', res.data, url)
                 resolve(res.data);
             }).catch(err=>{
+                console.log('post_catch', err.response, url)
                 reject(err.response?.data);
             })
         })
@@ -67,7 +69,7 @@ class apiCore {
     get = async (url:string,authorization:string|null) => {
         this.setAuthorization(authorization);
         const request = new Promise<any>((resolve, reject) => {
-            this.axios.get(url).then(async res => {
+            this.client.get(url).then(async res => {
                 resolve(res.data)
             }).catch(err => {
                 reject(err.response?.data);
@@ -80,7 +82,7 @@ class apiCore {
     put = async (url:string, data:UpdateAccountTypes, authorization:string|null) => {
         this.setAuthorization(authorization);
         const request = new Promise<any>((resolve, reject) => {
-            this.axios.put(url, data).then(async res => {
+            this.client.put(url, data).then(async res => {
                 resolve(res.data);
             }).catch(err => {
                 reject(err.response?.data);

@@ -5,6 +5,7 @@ const api = new apiCore();
 
 const LoginRequest = async(data : LoginTypes) => {
     const result = await api.post( 'login' , data, null );
+    console.log('index', api)
     if ( result === undefined ) {
         return {
             type: 'failed',

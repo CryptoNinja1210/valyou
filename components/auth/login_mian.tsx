@@ -37,7 +37,8 @@ const LoginComponent = () => {
   const Login = async (e) => {
     e.preventDefault();
     const result = await LoginRequest(loginData);
-    dispatch(SignIn(result?.success));
+    console.log('result', result)
+    // dispatch(SignIn(result?.success));
   };
   React.useEffect(() => {
     console.log(status);
@@ -55,7 +56,7 @@ const LoginComponent = () => {
         hideProgressBar: true,
       });
     }
-  }, [status, error, token]);
+  }, [status, error, token, router]);
   return (
     <>
       <div className="!sticky top-0 z-10">

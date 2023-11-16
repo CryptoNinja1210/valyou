@@ -28,7 +28,8 @@ class apiCore {
     protected client = axios.create({
         baseURL: this.API_URL,
         headers: {
-            "Content-Type" : "application/json"
+            'Access-Control-Allow-Origin': 'http://localhost',
+            'Accept': 'application/json'
         }
     });
     getUserFromSession = (key:string):string|null => {
@@ -55,10 +56,10 @@ class apiCore {
         this.setAuthorization(authorization);
         const request = new Promise<any>((resolve, reject) => {
             this.client.post(url, data).then(async res => {
-                console.log('post_resolve', res.data, url)
+                console.log('post_resolve', res.data, this.client)
                 resolve(res.data);
             }).catch(err=>{
-                console.log('post_catch', err.response, url)
+                console.log('post_catch', err.response)
                 reject(err.response?.data);
             })
         })

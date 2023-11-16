@@ -109,8 +109,9 @@ const SignupComponent = () => {
   const dispatch = useDispatch();
   const handleClickOpen = async(e) => {
     e.preventDefault();
-    // const response = await SignupRequest(signupData);
-    dispatch(SignUp(signupData));
+    const response = await SignupRequest(signupData);
+    console.log('signup', response);
+    // dispatch(SignUp(signupData));
   };
 
   useEffect(() => {

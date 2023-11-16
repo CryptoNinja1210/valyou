@@ -4,7 +4,7 @@ import { apiCore } from "../apiCore";
 const api = new apiCore();
 
 const LoginRequest = async(data : LoginTypes) => {
-    const result = await api.post( 'login' , data, null );
+    const result = await api.post( 'api/login' , data, null );
     console.log('index', api)
     if ( result === undefined ) {
         return {
@@ -19,7 +19,7 @@ const LoginRequest = async(data : LoginTypes) => {
 }
 
 const SignupRequest = async(data : SignupTypes ) => {
-    const result = await api.post( 'register', data, null );
+    const result = await api.post( 'api/register', data, null );
     if ( result === undefined ){
         return {
             type : 'failed',
@@ -33,7 +33,7 @@ const SignupRequest = async(data : SignupTypes ) => {
 }
 
 const VerifyRequest = async(data: PasscodeTypes) => {
-    const result = await api.post('verify_accounts', data, null);
+    const result = await api.post('api/verify_accounts', data, null);
     if ( result === undefined ){
         return {
             type: 'failed',
@@ -47,7 +47,7 @@ const VerifyRequest = async(data: PasscodeTypes) => {
 }
 
 const ResendVerifyCodeRequest = async(data: PasscodeTypes) => {
-    const result = await api.post('resend_verifycode', data, null);
+    const result = await api.post('api/resend_verifycode', data, null);
     if ( result === undefined ) {
         return {
             type: 'failed',

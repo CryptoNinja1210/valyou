@@ -8,6 +8,7 @@ export const getBitToUSD = async () => {
       `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd`,
       ""
     );
+    console.log('getBTC', result)
     return result;
   } catch (error) {}
 };
